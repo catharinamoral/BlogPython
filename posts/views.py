@@ -12,6 +12,10 @@ def cadastro(request):
     form = PedidoForm(request.POST or None)
     if form.is_valid():
         form.save()
+        context = {
+            'msg': 'Cadastro efetuado'
+        } 
+        return render(request, 'cadastro.html', context)
     context = {
         'formulario': form
     }
